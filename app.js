@@ -1,64 +1,77 @@
-const kebab = document.querySelector('[data-toggle="ChatBodyKebab"]')
-const kebabNode = document.querySelector('.chatKebab')
+const addClass = (element, className) => {
+  element.classList.add(className);
+};
 
-const searchButton = document.querySelector('[data-toggle="ChatBodySearch"]')
-const searchNode = document.querySelector('.searchBar')
-
-const searchClose = document.querySelector('[data-toggle="searchBarClose"]')
-
-const checkbox = document.getElementById('checkbox-ios')
-
-const infoButton = document.querySelector('.chatBody__info')
-const infoNode = document.querySelector('.infoBar')
-
-const infoClose = document.querySelector('[data-toggle="infoBarClose"]')
-
-checkbox.addEventListener('change', () => {
-if(checkbox.checked) {
-  console.log('checked')
-} else {
-  console.log('not checked')
-}
-})
-
-function toggleClass(element, className) {
-  element.classList.toggle(className);
-}
-
-function removeClass(element, className) {
+const removeClass = (element, className) => {
   element.classList.remove(className);
-}
+};
 
-function handleClickOutside(element, event) {
+const toggleClass = (element, className) => {
+  element.classList.toggle(className);
+};
+
+const handleClickOutside = (element, event) => {
   if (!element.contains(event.target)) {
     removeClass(element, 'shown');
   }
-}
+};
 
-kebab.addEventListener('click', (event) => {
-  toggleClass(kebabNode, 'shown');
+const chatGroups = Array.from(document.querySelectorAll('.chatGroup'));
+const preview = document.querySelector('.preview');
+const chatBody = document.querySelector('.chatBody');
+let lastClickedGroup = null;
+
+const handleGroupClick = (group) => {
+  if (lastClickedGroup) {
+    removeClass(lastClickedGroup, 'current');
+  }
+
+  addClass(group, 'current');
+  preview?.remove();
+  chatBody.style.display = 'flex';
+  lastClickedGroup = group;
+};
+
+chatGroups.forEach(group => {
+  group.addEventListener('click', () => {
+    handleGroupClick(group);
+  });
 });
 
-searchButton.addEventListener('click', (event) => {
-  toggleClass(searchNode, 'shown');
+const emojis = [
+  '😀', '😃', '😄', '😊', '😎', '😍', '😘', '😆',
+  '😉', '😋', '😜', '😝', '😏', '😒', '😌', '😔',
+  '😞', '😣', '😢', '😭', '😂', '😲', '😠', '😡',
+  '😳', '😱', '😴', '😈', '👿', '💀', '👻', '👽',
+  '👾', '💩', '🙈', '🙉', '🙊', '👦', '👧', '👨',
+  '👩', '👴', '👵', '👶', '👱', '👮', '👲', '👳',
+  '👷', '👸', '💂', '🎅', '👰', '🤵', '👼', '🎃'
+];
+
+const emojiContainer = document.querySelector('.emojiContainer');
+const messageInput = document.querySelector('.chatBody__messageInput');
+
+const handleEmojiClick = (emoji) => {
+  messageInput.value += emoji;
+};
+
+emojis.forEach((emoji) => {
+  const emojiElement = document.createElement('span');
+  emojiElement.textContent = emoji;
+  emojiElement.classList.add('emoji');
+  emojiElement.addEventListener('click', () => handleEmojiClick(emoji));
+  emojiContainer.appendChild(emojiElement);
 });
 
-searchClose.addEventListener('click', () => {
-  removeClass(searchNode, 'shown');
-});
+const checkbox = document.getElementById('checkbox-ios');
 
-infoButton.addEventListener('click', (event) => {
-  toggleClass(infoNode, 'shown');
+checkbox.addEventListener('change', () => {
+  if (checkbox.checked) {
+    console.log('checked');
+  } else {
+    console.log('not checked');
+  }
 });
-
-infoClose.addEventListener('click', () => {
-  removeClass(infoNode, 'shown');
-});
-
-document.addEventListener('click', (event) => {
-  handleClickOutside(kebab, event);
-});
-
 
 const initTabs = (containerSelector, tabSelector, tabAreaSelector, currentTabClass) => {
   const container = document.querySelector(containerSelector);
@@ -67,7 +80,7 @@ const initTabs = (containerSelector, tabSelector, tabAreaSelector, currentTabCla
 
   const showTab = (tabIndex) => {
     tabs.forEach((tab, index) => {
-      tab.classList.toggle(currentTabClass, index === tabIndex);
+      toggleClass(tab, currentTabClass, index === tabIndex);
     });
 
     tabAreas.forEach((tabArea, index) => {
@@ -85,3 +98,44 @@ const initTabs = (containerSelector, tabSelector, tabAreaSelector, currentTabCla
 };
 
 initTabs('.infoBarGroup__tabs', '.infoBarGroup__tab', '.infoBarGroup__tabArea', 'current');
+
+const kebab = document.querySelector('[data-toggle="ChatBodyKebab"]');
+const kebabNode = document.querySelector('.chatKebab');
+
+const searchButton = document.querySelector('[data-toggle="ChatBodySearch"]');
+const searchNode = document.querySelector('.searchBar');
+const searchClose = document.querySelector('[data-toggle="searchBarClose"]');
+
+const infoButton = document.querySelector('.chatBody__info');
+const infoNode = document.querySelector('.infoBar');
+const infoClose = document.querySelector('[data-toggle="infoBarClose"]');
+
+const emojiButton = document.querySelector('.smiles');
+
+kebab.addEventListener('click', () => {
+  toggleClass(kebabNode, 'shown');
+});
+
+searchButton.addEventListener('click', () => {
+  toggleClass(searchNode, 'shown');
+});
+
+searchClose.addEventListener('click', () => {
+  removeClass(searchNode, 'shown');
+});
+
+infoButton.addEventListener('click', () => {
+  toggleClass(infoNode, 'shown');
+});
+
+emojiButton.addEventListener('click', () => {
+  toggleClass(emojiContainer, 'shown');
+});
+
+infoClose.addEventListener('click', () => {
+  removeClass(infoNode, 'shown');
+});
+
+document.addEventListener('click', (event) => {
+  handleClickOutside(kebab, event);
+});

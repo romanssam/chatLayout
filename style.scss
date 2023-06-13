@@ -204,6 +204,8 @@ body {
   }
 
   &__message {
+    position: relative;
+
     display: flex;
     align-items: center;
     width: 100%;
@@ -535,4 +537,61 @@ box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.5);
   font-size: 14px;
 
   color: #00A539;
+}
+
+.emojiContainer {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+    position: absolute;
+    bottom: 118%;
+    background: #fff;
+    padding: 12px;
+    border-radius: 18px;
+    max-width: 200px;
+    overflow: auto;
+    max-height: 100px;
+    box-shadow: rgba(0, 0, 0, 0.09) 0px 3px 12px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+    transform: translateY(-10px);
+    transition: all .4s ease;
+    &.shown {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: all;
+      transition: all .4s ease;
+      transform: translateY(0px);
+    }
+    .emoji {
+      font-size: 24px;
+    }
+}
+
+.preview {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  overflow: hidden;
+  background: linear-gradient(123.81deg, rgba(255, 255, 255, 0.2) 0.91%, rgba(45, 170, 74, 0.2) 120.47%);
+
+  svg {
+     animation: liftAndDrop 3s infinite alternate;
+  }
+}
+
+@keyframes liftAndDrop {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
 }
