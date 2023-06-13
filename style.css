@@ -34,6 +34,11 @@ body {
   width: 100%;
   height: 673px;
 }
+@media (max-width: 801px) {
+  .houseChat {
+    flex-direction: column;
+  }
+}
 .houseChat__groups {
   background-color: #fff;
 }
@@ -128,7 +133,8 @@ body {
   display: flex;
   flex-direction: column;
   width: 100%;
-  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: hidden;
   background: linear-gradient(123.81deg, rgba(255, 255, 255, 0.2) 0.91%, rgba(45, 170, 74, 0.2) 120.47%);
 }
 .chatBody__head {
@@ -520,10 +526,21 @@ body {
   margin-left: 8px;
   transition: all 0.3s ease;
 }
+@media (max-width: 801px) {
+  .expandGroup {
+    display: none;
+  }
+}
 
 .houseChat__groups {
   width: 353px;
   transition: width 0.3s ease;
+}
+@media (max-width: 801px) {
+  .houseChat__groups {
+    width: 100%;
+    height: 100%;
+  }
 }
 
 .collapsed {
@@ -551,4 +568,78 @@ body {
   100% {
     transform: translateY(0);
   }
+}
+.outgoingMessage {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 12px;
+  align-items: flex-end;
+}
+.outgoingMessage__lead {
+  background: #00A539;
+  border-radius: 8px 0px 8px 8px;
+  padding: 10px;
+  color: #fff;
+  max-width: 440px;
+  word-break: break-word;
+}
+.outgoingMessage__status {
+  text-align: right;
+}
+.outgoingMessage__time {
+  margin-top: 8px;
+  font-weight: 600;
+  font-size: 12px;
+  color: #9E9E9E;
+}
+
+.incomingMessage {
+  display: flex;
+  align-items: flex-end;
+}
+.incomingMessage__avatar {
+  margin-right: 12px;
+}
+.incomingMessage__lead {
+  background: #FFFFFF;
+  border-radius: 0px 8px 8px 8px;
+  padding: 10px;
+  color: rgba(0, 0, 0, 0.87);
+  max-width: 440px;
+  word-break: break-word;
+}
+.incomingMessage__username {
+  font-weight: 600;
+  font-size: 12px;
+  color: #FF8A00;
+}
+.incomingMessage__text {
+  margin-top: 8px;
+  line-height: 20px;
+}
+.incomingMessage__time {
+  margin-top: 8px;
+  font-weight: 600;
+  font-size: 12px;
+  color: #9E9E9E;
+}
+
+.chatBody__message--date {
+  padding: 1px 6px;
+  background-color: #ebebeb;
+  margin-bottom: 12px;
+  width: -moz-fit-content;
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 4px;
+}
+.chatBody__message--date span {
+  width: -moz-fit-content;
+  width: fit-content;
+  font-weight: 600;
+  font-size: 10px;
+  line-height: 15px;
+  display: flex;
+  color: #9e9e9e;
 }/*# sourceMappingURL=style.css.map */

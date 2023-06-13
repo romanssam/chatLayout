@@ -37,6 +37,10 @@ body {
   width: 100%;
   height: 673px;
 
+  @media (max-width: 801px) {
+    flex-direction: column;
+  }
+
   &__groups {
     background-color: #fff;
 
@@ -160,7 +164,8 @@ body {
   display: flex;
   flex-direction: column;
   width: 100%;
-  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: hidden;
   background: linear-gradient(123.81deg, rgba(255, 255, 255, 0.2) 0.91%, rgba(45, 170, 74, 0.2) 120.47%);
 
   &__head {
@@ -627,11 +632,21 @@ box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.5);
 .expandGroup {
   margin-left: 8px;
   transition: all 0.3s ease;
+
+  @media(max-width: 801px) {
+    display: none;
+  }
+
 }
 
 .houseChat__groups {
   width: 353px;
-transition: width 0.3s ease;
+  transition: width 0.3s ease;
+
+  @media(max-width: 801px) {
+    width: 100%;
+    height: 100%;
+  }
 }
 
 .collapsed {
@@ -662,4 +677,90 @@ transition: width 0.3s ease;
   100% {
     transform: translateY(0);
   }
+}
+
+.outgoingMessage {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 12px;
+  align-items: flex-end;
+
+  &__lead {
+    background: #00A539;
+    border-radius: 8px 0px 8px 8px;
+    padding: 10px;
+    color: #fff;
+
+    max-width: 440px;
+    word-break: break-word;
+  }
+  &__status {
+    text-align: right;
+  }
+
+  &__time {
+    margin-top: 8px;
+    font-weight: 600;
+  font-size: 12px;
+color: #9E9E9E;
+  }
+}
+
+.incomingMessage {
+  display: flex;
+  align-items: flex-end;
+
+  &__avatar {
+    margin-right: 12px;
+  }
+  &__lead {
+    background: #FFFFFF;
+    border-radius: 0px 8px 8px 8px;
+    padding: 10px;
+    color: rgba(0, 0, 0, 0.87);
+
+    max-width: 440px;
+    word-break: break-word;
+  }
+  &__username {
+    font-weight: 600;
+font-size: 12px;
+color: #FF8A00;
+  }
+
+  &__text {
+    margin-top: 8px;
+    line-height: 20px;
+  }
+  &__time {
+    margin-top: 8px;
+    font-weight: 600;
+  font-size: 12px;
+color: #9E9E9E;
+  }
+}
+
+.chatBody__message--date {
+  padding: 1px 6px;
+    background-color: #ebebeb;
+    margin-bottom: 12px;
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 4px;
+
+    span {
+width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
+    font-weight: 600;
+    font-size: 10px;
+    line-height: 15px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    color: #9e9e9e;
+    }
 }
