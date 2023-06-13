@@ -35,7 +35,7 @@ body {
   display: flex;
   justify-content: space-between;
   width: 100%;
-  height: 100%;
+  height: 673px;
 
   &__groups {
     background-color: #fff;
@@ -43,7 +43,6 @@ body {
     &--search {
       padding: 18.5px 20px;
       box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
-
       input {
         background: #F5F5F5;
         border-radius: 7px;
@@ -59,6 +58,8 @@ body {
         font-size: 14px;
         line-height: 18px;
 
+        padding-left: 38px;
+
         display: flex;
         align-items: center;
 
@@ -73,6 +74,8 @@ body {
   align-items: center;
   padding: 10px 25px;
 
+  overflow: hidden;
+
   cursor: pointer;
   border-bottom: 1px solid #E5E5E5;
 
@@ -83,12 +86,22 @@ body {
     background-color: #F5F5F5;
   }
 
+  &.current {
+    transition: background-color .4s ease;
+    background-color: #F5F5F5;
+  }
+
   &__info {
     margin-left: 14px;
 
     &--title {
       font-weight: 500;
       font-size: 14px;
+
+      max-width: 196px;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
 
       color: #111111;
     }
@@ -296,6 +309,7 @@ body {
   &.shown {
     right: -22px;
     transition: right .6s ease;
+    z-index: 1;
   }
 
   &__head {
@@ -335,6 +349,7 @@ body {
 
   &__body {
     padding: 24px;
+    max-height: 600px;
     overflow: auto;
 
     .helperText {
@@ -581,6 +596,59 @@ box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.5);
 
   svg {
      animation: liftAndDrop 3s infinite alternate;
+  }
+}
+
+.relative {
+  position: relative;
+}
+
+.flex { 
+  display: flex;
+}
+
+.align-center {
+  align-items: center;
+}
+
+.searchIcon {
+  position: absolute;
+  left: 11px;
+}
+
+.justify-between {
+  justify-content: space-between;
+}
+
+.grow-1 {
+  flex-grow: 1;
+}
+
+.expandGroup {
+  margin-left: 8px;
+  transition: all 0.3s ease;
+}
+
+.houseChat__groups {
+  width: 353px;
+transition: width 0.3s ease;
+}
+
+.collapsed {
+  width: 87px;
+  transition: width 0.3s ease;
+
+  .expandGroup {
+    transform: rotate(180deg);
+    transition: all 0.3s ease;
+
+    position: absolute;
+    right: 10px;
+    bottom: 28px;
+  }
+
+  .groupSearch {
+    opacity: 0;
   }
 }
 

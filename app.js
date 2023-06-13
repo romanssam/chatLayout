@@ -112,6 +112,14 @@ const infoClose = document.querySelector('[data-toggle="infoBarClose"]');
 
 const emojiButton = document.querySelector('.smiles');
 
+const expandGroup = document.querySelector('.expandGroup');
+const chatGroup = document.querySelector('.houseChat__groups');
+
+expandGroup.addEventListener('click', () => {
+  chatGroup.classList.toggle('collapsed');
+});
+
+
 kebab.addEventListener('click', () => {
   toggleClass(kebabNode, 'shown');
 });

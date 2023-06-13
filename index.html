@@ -11,12 +11,59 @@
     <div class="container">
       <div class="houseChat">
         <div class="houseChat__groups">
-          <div class="houseChat__groups--search">
-            <input
-              type="text"
-              class="groupSearch"
-              placeholder="Поиск или новый чат"
-            />
+          <div
+            class="houseChat__groups--search flex align-center justify-between relative"
+          >
+            <div class="relative flex align-center grow-1">
+              <svg
+                width="20"
+                class="searchIcon"
+                height="20"
+                viewBox="0 0 20 20"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M3.3335 8.74992C3.3335 5.71916 5.78389 3.33325 8.75016 3.33325C11.7164 3.33325 14.1668 5.78365 14.1668 8.74992C14.1668 11.7162 11.7164 14.1666 8.75016 14.1666C5.78389 14.1666 3.3335 11.7807 3.3335 8.74992Z"
+                  stroke="#9E9E9E"
+                  stroke-width="2"
+                  stroke-miterlimit="10"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <path
+                  d="M16.6668 17.5001L13.3335 14.1667"
+                  stroke="#9E9E9E"
+                  stroke-width="2"
+                  stroke-miterlimit="10"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+
+              <input
+                type="text"
+                class="groupSearch"
+                placeholder="Поиск или новый чат"
+              />
+            </div>
+            <button class="expandGroup">
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 20 20"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M13 16L7 10L13 4"
+                  stroke="#9E9E9E"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </button>
           </div>
           <div class="houseChat__group chatGroup">
             <div class="chatGroup__avatar">
@@ -107,7 +154,9 @@
                 </svg>
               </button>
               <div class="searchBar">
-                <div class="searchBar__head">
+                <div
+                  class="searchBar__head flex align-center justify-between relative"
+                >
                   <button class="searchBarClose" data-toggle="searchBarClose">
                     <svg
                       width="24"
@@ -132,8 +181,41 @@
                       />
                     </svg>
                   </button>
+                  <div class="relative flex align-center grow-1">
+                    <svg
+                      width="20"
+                      class="searchIcon"
+                      style="left: 33px"
+                      height="20"
+                      viewBox="0 0 20 20"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M3.3335 8.74992C3.3335 5.71916 5.78389 3.33325 8.75016 3.33325C11.7164 3.33325 14.1668 5.78365 14.1668 8.74992C14.1668 11.7162 11.7164 14.1666 8.75016 14.1666C5.78389 14.1666 3.3335 11.7807 3.3335 8.74992Z"
+                        stroke="#9E9E9E"
+                        stroke-width="2"
+                        stroke-miterlimit="10"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      ></path>
+                      <path
+                        d="M16.6668 17.5001L13.3335 14.1667"
+                        stroke="#9E9E9E"
+                        stroke-width="2"
+                        stroke-miterlimit="10"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      ></path>
+                    </svg>
 
-                  <input type="text" class="searchInBar" placeholder="Поиск " />
+                    <input
+                      type="text"
+                      class="searchInBar"
+                      placeholder="Поиск "
+                      style="padding-left: 38px"
+                    />
+                  </div>
                 </div>
                 <div class="searchBar__body">
                   <div class="helperText">
