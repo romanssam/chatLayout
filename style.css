@@ -678,6 +678,8 @@ body {
   height: 125px;
   background: #F5F5F5;
   border-radius: 100px;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 label[for=uploadProfilePhoto] {
@@ -693,4 +695,75 @@ label[for=uploadProfilePhoto] .desc {
   text-align: center;
   font-size: 14px;
   line-height: 15px;
+  margin-top: 0;
+}
+
+.profileBarGroup__userInfo, .profileBarGroup__userName {
+  margin-top: 26px;
+  display: flex;
+  padding: 10px 13px 11px 14px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 9px;
+  border-radius: 10px;
+  background-color: #F5F5F5;
+}
+.profileBarGroup__userInfo form, .profileBarGroup__userName form {
+  width: 100%;
+}
+
+.userInfo__firstName, .userName__firstName {
+  width: 100%;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #E5E5E5;
+}
+.userInfo__firstName input, .userName__firstName input {
+  width: 100%;
+  background-color: transparent;
+  outline: none;
+  border: none;
+  color: rgba(0, 0, 0, 0.87);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 15px;
+}
+.userInfo__firstName input::-webkit-input-placeholder, .userName__firstName input::-webkit-input-placeholder {
+  color: #9E9E9E;
+  font-size: 14px;
+  font-family: Inter;
+  font-weight: 500;
+  line-height: 15px;
+}
+.userInfo__lastName, .userInfo__name, .userName__lastName, .userName__name {
+  width: 100%;
+  padding-top: 8px;
+}
+.userInfo__lastName input, .userInfo__name input, .userName__lastName input, .userName__name input {
+  width: 100%;
+  background-color: transparent;
+  outline: none;
+  border: none;
+  color: rgba(0, 0, 0, 0.87);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 15px;
+}
+.userInfo__lastName input::-webkit-input-placeholder, .userInfo__name input::-webkit-input-placeholder, .userName__lastName input::-webkit-input-placeholder, .userName__name input::-webkit-input-placeholder {
+  color: #9E9E9E;
+  font-size: 14px;
+  font-family: Inter;
+  font-weight: 500;
+  line-height: 15px;
+}
+
+.userName__name {
+  padding-top: 0;
+}
+
+.profileBarGroup .desc {
+  color: rgba(0, 0, 0, 0.87);
+  font-size: 10px;
+  font-weight: 500;
+  line-height: 15px;
+  margin-top: 10px;
 }/*# sourceMappingURL=style.css.map */

@@ -113,6 +113,8 @@ initTabs('.infoBarGroup__tabs', '.infoBarGroup__tab', '.infoBarGroup__tabArea', 
 const kebab = document.querySelector('[data-toggle="ChatBodyKebab"]');
 const kebabNode = document.querySelector('.chatKebab');
 
+const groupSearch = document.querySelector('.groupSearch');
+
 const searchButton = document.querySelector('[data-toggle="ChatBodySearch"]');
 const searchNode = document.querySelector('.searchBar');
 const searchClose = document.querySelector('[data-toggle="searchBarClose"]');
@@ -143,6 +145,8 @@ const handleFileUpload = (event) => {
       const img = document.createElement('img');
       img.src = reader.result;
 
+      localStorage.setItem('avatarUrl', reader.result)
+
       imageContainer.innerHTML = '';
       imageContainer.appendChild(img);
     })
@@ -156,9 +160,41 @@ const handleFileUpload = (event) => {
 imageUploadInput.addEventListener('change', handleFileUpload)
 
 expandGroup.addEventListener('click', () => {
+  const isCollapsed = chatGroup.classList.contains('collapsed');
+
   chatGroup.classList.toggle('collapsed');
+
+  if (isCollapsed) {
+    localStorage.setItem('asideState', 'active');
+  } else {
+    localStorage.setItem('asideState', 'hide');
+  }
 });
 
+document.addEventListener('DOMContentLoaded', () => {
+  const state = localStorage.getItem('asideState');
+  const avatarUrl = localStorage.getItem('avatarUrl');
+
+  if(avatarUrl) {
+    const img = document.createElement('img')
+    img.src = avatarUrl;
+
+    imageContainer.appendChild(img)
+  }
+
+  if (state === 'active') {
+    chatGroup.classList.remove('collapsed');
+  } else {
+    chatGroup.classList.add('collapsed');
+  }
+});
+
+const groupSearchClickHandler = () => {
+  const isCollapsed = chatGroup.classList.contains('collapsed');
+  chatGroup.classList.remove(isCollapsed ? 'collapsed' : null)
+}
+
+groupSearch.addEventListener('click', groupSearchClickHandler)
 
 kebab.addEventListener('click', () => {
   toggleClass(kebabNode, 'shown');

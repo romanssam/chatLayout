@@ -343,43 +343,6 @@
                     </div>
                     <div class="infoBarGroup__tabArea tabArea" data-tab="1">
                       <div class="tabArea__items">
-                        <button class="invite">
-                          <svg
-                            width="24"
-                            height="24"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <circle
-                              cx="10"
-                              cy="8"
-                              r="3.25"
-                              stroke="#00A539"
-                              stroke-width="1.5"
-                            />
-                            <path
-                              d="M15.2 20.4001H5.56571C4.70099 20.4001 4 19.7143 4 18.8682C4 15.9587 6.41073 13.6001 9.38451 13.6001H11.3812C12.7367 13.6001 13.9752 14.0902 14.9218 14.8991"
-                              stroke="#00A539"
-                              stroke-width="1.5"
-                              stroke-linecap="round"
-                            />
-                            <path
-                              d="M17.6001 14.7998L17.6001 20.3998"
-                              stroke="#00A539"
-                              stroke-width="1.5"
-                              stroke-linecap="round"
-                            />
-                            <path
-                              d="M20 17.6001L14.4 17.6001"
-                              stroke="#00A539"
-                              stroke-width="1.5"
-                              stroke-linecap="round"
-                            />
-                          </svg>
-
-                          Пригласить
-                        </button>
                         <div class="tabArea__user">
                           <div class="tabArea__user--avatar">
                             <img src="/assets/logo1.png" alt="" />
@@ -413,7 +376,10 @@
                 </div>
               </div>
               <div class="profileBar">
-                <div class="profileBar__head">
+                <div
+                  class="profileBar__head"
+                  style="padding: 25.5px 20px; gap: 8px"
+                >
                   <button class="profileBarClose" data-toggle="profileBarClose">
                     <svg
                       width="24"
@@ -438,7 +404,7 @@
                       />
                     </svg>
                   </button>
-                  <div>Профиль</div>
+                  <div style="font-size: 18px; font-weight: 600">Профиль</div>
                 </div>
                 <div class="profileBar__body profileBarGroup">
                   <div class="profileBarGroup__items">
@@ -453,6 +419,36 @@
                         />
                       </label>
                     </div>
+                    <div class="profileBarGroup__userInfo">
+                      <form action="">
+                        <div class="userInfo__firstName">
+                          <input
+                            type="text"
+                            placeholder="Имя"
+                            name="userFirstName"
+                          />
+                        </div>
+                        <div class="userInfo__lastName">
+                          <input
+                            type="text"
+                            placeholder="Фамилия"
+                            name="userLastName"
+                          />
+                        </div>
+                      </form>
+                    </div>
+                    <div class="desc">
+                      Укажите имя, фамилию и, если хотите, добавьте фотографию
+                      для Вашего профиля
+                    </div>
+                    <div class="profileBarGroup__userName">
+                      <form action="">
+                        <div class="userName__name">
+                          <input type="text" placeholder="Псевдоним" />
+                        </div>
+                      </form>
+                    </div>
+                    <div class="desc">Необязательное поле</div>
                   </div>
                 </div>
               </div>
