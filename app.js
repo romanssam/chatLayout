@@ -117,6 +117,10 @@ const searchButton = document.querySelector('[data-toggle="ChatBodySearch"]');
 const searchNode = document.querySelector('.searchBar');
 const searchClose = document.querySelector('[data-toggle="searchBarClose"]');
 
+const profileButton = document.querySelector('[data-toggle="ChatBodyProfile"]');
+const profileNode = document.querySelector('.profileBar');
+const profileClose = document.querySelector('[data-toggle="profileBarClose"]');
+
 const infoButton = document.querySelector('.chatBody__info');
 const infoNode = document.querySelector('.infoBar');
 const infoClose = document.querySelector('[data-toggle="infoBarClose"]');
@@ -125,6 +129,31 @@ const emojiButton = document.querySelector('.smiles');
 
 const expandGroup = document.querySelector('.expandGroup');
 const chatGroup = document.querySelector('.houseChat__groups');
+
+const imageUploadInput = document.getElementById('uploadProfilePhoto');
+const imageContainer = document.querySelector('.avatarPlace');
+
+const handleFileUpload = (event) => {
+  const file = event.target.files[0];
+
+  if(file && file.type.startsWith('image/')) {
+    const reader = new FileReader();
+
+    reader.addEventListener('load', () => {
+      const img = document.createElement('img');
+      img.src = reader.result;
+
+      imageContainer.innerHTML = '';
+      imageContainer.appendChild(img);
+    })
+    reader.readAsDataURL(file);
+  } else {
+    alert('Недопустимый формат файла, загрузите изображение')
+    imageUploadInput.value = ''
+  }
+}
+
+imageUploadInput.addEventListener('change', handleFileUpload)
 
 expandGroup.addEventListener('click', () => {
   chatGroup.classList.toggle('collapsed');
@@ -137,6 +166,14 @@ kebab.addEventListener('click', () => {
 
 searchButton.addEventListener('click', () => {
   toggleClass(searchNode, 'shown');
+});
+
+profileButton.addEventListener('click', () => {
+  profileNode.classList.toggle('shown')
+});
+
+profileClose.addEventListener('click', () => {
+  removeClass(profileNode, 'shown');
 });
 
 searchClose.addEventListener('click', () => {

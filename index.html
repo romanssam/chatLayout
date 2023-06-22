@@ -125,6 +125,40 @@
               <span class="chatBody__name">Общедомовой чат</span>
             </button>
             <div class="chatBody__controls">
+              <button class="chatBody__profile" data-toggle="ChatBodyProfile">
+                <svg
+                  width="28"
+                  height="28"
+                  viewBox="0 0 28 28"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <mask
+                    id="path-1-outside-1_2501_684"
+                    maskUnits="userSpaceOnUse"
+                    x="4"
+                    y="17"
+                    width="20"
+                    height="8"
+                    fill="black"
+                  >
+                    <rect fill="white" x="4" y="17" width="20" height="8" />
+                    <path
+                      d="M22 25V23C22 21.9391 21.5786 20.9217 20.8284 20.1716C20.0783 19.4214 19.0609 19 18 19H10C8.93913 19 7.92172 19.4214 7.17157 20.1716C6.42143 20.9217 6 21.9391 6 23V25"
+                    />
+                  </mask>
+                  <path
+                    d="M18 19V17V19ZM10 19V17V19ZM6 23H4H6ZM24 25V23H20V25H24ZM24 23C24 21.4087 23.3679 19.8826 22.2426 18.7574L19.4142 21.5858C19.7893 21.9609 20 22.4696 20 23H24ZM22.2426 18.7574C21.1174 17.6321 19.5913 17 18 17V21C18.5304 21 19.0391 21.2107 19.4142 21.5858L22.2426 18.7574ZM18 17H10V21H18V17ZM10 17C8.4087 17 6.88258 17.6321 5.75736 18.7574L8.58579 21.5858C8.96086 21.2107 9.46957 21 10 21V17ZM5.75736 18.7574C4.63214 19.8826 4 21.4087 4 23H8C8 22.4696 8.21071 21.9609 8.58579 21.5858L5.75736 18.7574ZM4 23V25H8V23H4Z"
+                    fill="#00A539"
+                    mask="url(#path-1-outside-1_2501_684)"
+                  />
+                  <path
+                    d="M14 14C16.7614 14 19 11.7614 19 9C19 6.23858 16.7614 4 14 4C11.2386 4 9 6.23858 9 9C9 11.7614 11.2386 14 14 14Z"
+                    stroke="#00A539"
+                    stroke-width="2"
+                  />
+                </svg>
+              </button>
               <button class="chatBody__search" data-toggle="ChatBodySearch">
                 <svg
                   width="28"
@@ -374,6 +408,50 @@
                     </div>
                     <div class="infoBarGroup__tabArea tabArea" data-tab="2">
                       Что то будет
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="profileBar">
+                <div class="profileBar__head">
+                  <button class="profileBarClose" data-toggle="profileBarClose">
+                    <svg
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M18 6L6 18"
+                        stroke="#9E9E9E"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                      <path
+                        d="M6 6L18 18"
+                        stroke="#9E9E9E"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                    </svg>
+                  </button>
+                  <div>Профиль</div>
+                </div>
+                <div class="profileBar__body profileBarGroup">
+                  <div class="profileBarGroup__items">
+                    <div class="profileBarGroup__upload">
+                      <label for="uploadProfilePhoto">
+                        <div class="avatarPlace"></div>
+                        <div class="desc">Выбрать фотографию</div>
+                        <input
+                          type="file"
+                          id="uploadProfilePhoto"
+                          style="display: none"
+                        />
+                      </label>
                     </div>
                   </div>
                 </div>
