@@ -171,6 +171,7 @@ body {
   margin-bottom: 20px;
 }
 .chatBody__messageControls {
+  position: relative;
   display: flex;
   justify-content: space-between;
   margin-top: auto;
@@ -194,9 +195,31 @@ body {
   outline: none;
 }
 .chatBody__addFiles, .chatBody__voiceMessage {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   padding: 7px;
   border-radius: 100px;
   background-color: #fff;
+}
+.chatBody__sendMessage {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  right: 20px;
+  bottom: 31px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+  padding: 7px;
+  border-radius: 100px;
+  background-color: #00A539;
+}
+.chatBody__sendMessage.shown {
+  opacity: 1;
+  pointer-events: all;
+  transition: opacity 0.2s ease;
 }
 
 .chatBody__controls {

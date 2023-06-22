@@ -50,6 +50,17 @@ const emojis = [
 
 const emojiContainer = document.querySelector('.emojiContainer');
 const messageInput = document.querySelector('.chatBody__messageInput');
+const sendMessageButton = document.querySelector('.chatBody__sendMessage')
+
+messageInput.addEventListener('input', (event) => {
+  const value = event.target.value;
+
+  if(value.length >= 1) {
+    sendMessageButton.classList.add('shown')
+  } else {
+    sendMessageButton.classList.remove('shown')
+  }
+})
 
 const handleEmojiClick = (emoji) => {
   messageInput.value += emoji;
